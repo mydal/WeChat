@@ -1,0 +1,17 @@
+<!-- pages/detail/detail.wxml -->
+<!-- <text>pages/detail/detail.wxml</text> -->
+
+<view class="list">
+  <view class="list-item">
+    <image class="pic" src="{{item.pic}}"></image>
+    <view class="list-info">
+      <text>{{item.title}}</text>
+      <image class="img" src="{{item.img}}"></image>
+      <image class="img" src="{{item.icon}}"></image>
+    </view>
+    <view class="content">
+    <text>{{item.text}}</text>
+    </view>
+  </view>
+</view>
+
