@@ -3,15 +3,35 @@
 
 <view class="list">
   <view class="list-item">
-    <image class="pic" src="{{item.pic}}"></image>
+    <image class="pic " bindtap="playMusic" src="{{item.pic}}"></image>
     <view class="list-info">
       <text>{{item.title}}</text>
-      <image class="img" src="{{item.img}}"></image>
-      <image class="img" src="{{item.icon}}"></image>
+      <image class="img" src="{{isCollected ? item.img : '../images/collection-anti.png'}}" bindtap="collected"></image>
+      <button class="share" open-type="share">
+        <image class="share-img" src="{{item.icon}}"></image>
+      </button>
     </view>
     <view class="content">
-    <text>{{item.text}}</text>
+      <text>{{item.content}}</text>
+    </view>
+
+  </view>
+
+  <!-- 评论部分 -->
+  <view class="common-list">
+    <block wx:for="{{comments}}" wx:key="key">
+      <view class="common-item">
+        <view class="common-info">
+          <text class="reply">{{item.user.nickName}}</text>
+          <text class="reply">{{item.create_time}}</text>
+          <image src="{{item.user.avatarUrl}}" style="width:60rpx;height:60rpx;" class="reply"></image>
+           <a class="reply"  bindtap="del" data-id="{{item.id}}">删除</a>
+        </view>
+        <view class="common-con"> {{item.content}} </view>
+      </view>
+    </block>
+    <view class="common-publish">
+      <input type="text" placeholder="发表评论不超过100个字符" confirm-type="send" bindconfirm="sendComment" data-id="{{item.id}}" value="{{inputValue}}"/>
     </view>
   </view>
 </view>
-

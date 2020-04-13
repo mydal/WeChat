@@ -1,6 +1,0 @@
-/* pages/chart/chart.wxss */
-
-.lbt image{
-  width: 100%;
-  height: 100%;
-}

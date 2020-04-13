@@ -1,26 +1,85 @@
 <!--pages/movie/movie.wxml-->
 <!-- <text>pages/movie/movie.wxml</text> -->
 
-<!-- 轮播图 -->
-<swiper class="lbt" autoplay="true" indicator-dots="true" indicator-color="rgba(0,0,.3)" indicator-active-color="#fff" interval="3000" circular="true" duration="400">
-  <block wx:for="{{focus}}" wx:key="key">
-    <swiper-item>
-      <image src="{{item.pic}}"></image>
-    </swiper-item>
-  </block>
-</swiper>
-
-<!-- 列表 -->
-<view class="list">
-  <view class="list-item" wx:for="{{list}}" wx:key="key">
-    <text class="title">{{item.title}}</text>
-    <image src="{{item.pic}}" class="pic" bindtap="showDetail" data-id="{{item.id}}"></image>
-    <text class="desc">{{item.text}}</text>
-    <view class="like">
-      <image src="{{item.icon1}}" class="watch"></image>
-      <text class="watch-num">{{item.likeNum}}</text>
-      <image src="{{item.icon2}}" class="watch"></image>
-      <text class="watch-num">{{item.zanNum}}</text>
-    </view>
+<view class="page">
+  <!--顶部导航栏-->
+  <view class="swiper-tab">
+    <view class="tab-item {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="swichNav">本周口碑榜</view>
+    <view class="tab-item {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="swichNav">新片榜</view>
+    <view class="tab-item {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="swichNav">热播榜</view>
   </view>
+  <!--内容主体-->
+  <swiper class="swiper" current="{{currentTab}}" duration="200" bindchange="swiperChange">
+    <swiper-item>
+      <view class="hot-con">
+        <view class="conB">
+          <block wx:for="{{hots}}" wx:key="key">
+            <view class="con">
+              <image src="{{item.subject.images.small}}" class="mpic"></image>
+              <text>{{item.subject.title}}</text>
+              <view class="star">
+                <view class="star-pic">
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                </view>
+                <text>{{item.subject.rating.average}}分</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="hot-con">
+        <view class="conB">
+          <block wx:for="{{news}}" wx:key="key">
+            <view class="con">
+              <image src="{{item.images.small}}" class="mpic"></image>
+              <text>{{item.title}}</text>
+              <view class="star">
+                <view class="star-pic">
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                </view>
+                <text>{{item.rating.average}}分</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+    <swiper-item>
+      <view class="hot-con">
+        <view class="conB">
+          <block wx:for="{{soons}}" wx:key="key">
+            <view class="con">
+              <image src="{{item.subject.images.small}}" class="mpic"></image>
+              <text>{{item.subject.title}}</text>
+              <view class="star">
+                <view class="star-pic">
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                  <image src="../images/star.png"></image>
+                </view>
+                <text>{{item.subject.rating.average}}分</text>
+              </view>
+            </view>
+          </block>
+        </view>
+      </view>
+    </swiper-item>
+  </swiper>
 </view>
+
+

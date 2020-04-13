@@ -8,5 +8,14 @@ App({
   },
   onHide() {
     console.log('小程序隐藏，从前台进入后台');
-  } 
+  },
+
+  // 全局变量
+  globalData:{
+    userInfo:null
+  },
+  data:{
+    testNum:1,
+    testName:'蔡徐坤'
+  }
 })

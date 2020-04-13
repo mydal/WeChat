@@ -1,4 +1,11 @@
 /**index.wxss**/
+.box .text{
+  text-align: center;
+  margin-top: 30rpx;
+  color: 	#1E90FF;
+  /* background-color: 	#1E90FF; */
+ 
+}
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -18,10 +25,4 @@
 
 .usermotto {
   margin-top: 200px;
-}
-
-.t1{
-  font-size: 50rpx;
-  color: red;
-  text-align: center;
 }

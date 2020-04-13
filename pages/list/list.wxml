@@ -1,0 +1,25 @@
+<!--pages/list/list.wxml-->
+<!-- 轮播图 -->
+<swiper class="lbt" autoplay="true" indicator-dots="true" indicator-color="rgba(0,0,.3)" indicator-active-color="#fff" interval="3000" circular="true" duration="400">
+  <block wx:for="{{focus}}" wx:key="key">
+    <swiper-item>
+      <image src="{{item.pic}}"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+<!-- 列表 -->
+<view class="list">
+  <view class="list-item" wx:for="{{list}}" wx:key="key">
+    <text class="title">{{item.title}}</text>
+    <!-- 绑定点击函数 设置自定义属性id -->
+    <image src="{{item.pics}}" class="pic" bindtap="showDetail" data-id="{{item.id}}"></image>
+    <text class="desc">{{item.content}}</text>
+    <view class="like">
+      <image src="{{item.icon1}}" class="watch"></image>
+      <text class="watch-num">{{item.likeNum}}</text>
+      <image src="{{item.icon2}}" class="watch"></image>
+      <text class="watch-num">{{item.zanNum}}</text>
+    </view>
+  </view>
+</view>
