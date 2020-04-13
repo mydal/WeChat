@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Windows
 [Dd]esktop.ini
 Thumbs.db
@@ -12,3 +13,9 @@ $RECYCLE.BIN/
 
 # Node.js
 node_modules/
+=======
+.idea
+composer.lock
+*.log
+thinkphp
+>>>>>>> 6c73e6bd07078705ac0020ce743133bd4a526abe
